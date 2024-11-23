@@ -5,9 +5,17 @@ public class Usuario {
     protected String apellido;
     protected int numCedula;
     protected String usuario;
-    protected String contraseña;
+    protected String contrasenia;
     protected String correo; 
 
+    public Usuario(String nombre, String apellido, int numCedula, String usuario, String contrasenia, String correo){
+        this.apellido = apellido;
+        this.contrasenia = contrasenia;
+        this.correo = correo;
+        this.nombre = nombre;
+        this.numCedula = numCedula;
+        this.usuario = usuario;
+    }
     protected void consultarReserva(String fecha){
 
     }

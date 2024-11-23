@@ -1,4 +1,7 @@
 public enum TipoEspacio{
     
-    Aula, Laboratorio, Auditorio, Cancha
+    Aula, 
+    Laboratorio, 
+    Auditorio, 
+    Cancha
 }

@@ -1,4 +1,6 @@
 public enum Estado{
     
-    Pendiente,Rechazado,Aprobado
+    Pendiente,
+    Rechazado,
+    Aprobado
 }

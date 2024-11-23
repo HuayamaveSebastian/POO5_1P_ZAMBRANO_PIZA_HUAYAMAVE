@@ -1,4 +1,6 @@
 public enum Cargo{
     
-    Analista,IngenieroDatos,TecnicoInfraestructura
+    Analista,
+    IngenieroDatos,
+    TecnicoInfraestructura
 }

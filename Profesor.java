@@ -1,4 +1,4 @@
-import POO5_1P_ZAMBRANO_PIZA_HUAYAMAVE.Usuario;
+import com.example.Usuario;
 
 public class Profesor extends Usuario{
     

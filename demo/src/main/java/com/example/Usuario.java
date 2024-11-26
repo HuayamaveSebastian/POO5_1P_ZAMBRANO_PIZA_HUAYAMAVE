@@ -21,9 +21,9 @@ abstract class Usuario {
 
     }
 
-    public abstract void gestionarReserva (String fecha){
+    public abstract void gestionarReserva (String fecha);
 
-    }
+    
 
     protected void enviarCorreo(String profesor,Enum tipoEspacio,String materia ){
         System.out.println("Solicitud en proceso, se enviará un correo a profesor:" + profesor.getCorreo());

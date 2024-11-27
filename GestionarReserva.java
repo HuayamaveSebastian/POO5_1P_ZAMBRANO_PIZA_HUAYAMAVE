@@ -1,57 +1,158 @@
-import java.io.*;
-import java.util.*;
 import com.example.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class GestionarReserva {
+public abstract class GestionarReserva {
+
+
+    static Usuario personUsuario = null;
 
     public static void main(String[] args) {
-        // Cargar usuarios desde el archivo
-        List<Usuario> usuarios = leerUsuarios("usuarios.txt");
+        Scanner sc = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
 
-        // Enviar correos a los usuarios
-        for (Usuario usuario : usuarios) {
-            // Verificar el tipo de usuario para enviar el correo correspondiente
-            if (usuario instanceof Profesor) {
-                Profesor profesor = (Profesor) usuario;
-                // Ejemplo de enviar correo al administrador sobre la reserva
-                profesor.enviarCorreoReserva("admin@uni.edu", "Aula Magna", "2024-11-10", "Matemáticas");
-            } else if (usuario instanceof Estudiante) {
-                Estudiante estudiante = (Estudiante) usuario;
-                // Ejemplo de enviar correo al administrador sobre la reserva
-                estudiante.enviarCorreoReserva("admin@uni.edu", "Cancha de Futbol", "2024-11-11", "Estudio grupal");
-            }
-        }
-    }
+        System.out.println("Ingrese usuario:"); 
+        String usuario = sc.next();
+        System.out.println("Ingrese su contraseña:");
+        String contrasenia = sc2.next(); 
 
-    // Método para leer usuarios desde un archivo
-    public static List<Usuario> leerUsuarios(String rutaArchivo) {
-        List<Usuario> usuarios = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                String[] partes = linea.split("\\|");
-                int codigoUnico = Integer.parseInt(partes[0].trim());
-                int numCedula = Integer.parseInt(partes[1].trim());
-                String nombre = partes[2].trim();
-                String apellido = partes[3].trim();
-                String usuario = partes[4].trim();
-                String contrasenia = partes[5].trim();
-                String correo = partes[6].trim();
-                String rol = partes[7].trim();
-
-                // Crear un objeto según el rol
-                switch (rol) {
-                    case "E": // Estudiante
-                        usuarios.add(new Estudiante(nombre, apellido, numCedula, usuario, contrasenia, correo, codigoUnico, "Ingeniería"));
-                        break;
-                    case "P": // Profesor
-                        usuarios.add(new Profesor(nombre, apellido, numCedula, usuario, contrasenia, correo, List.of("Matemáticas"), "Facultad de Ciencias"));
-                        break;
+        boolean logeado = false;
+        
+        while (personUsuario == null){
+            try {
+                FileReader fr = new FileReader("usuarios.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String linea;
+                ArrayList<String> lineas = new ArrayList<String>();
+        
+                try {
+                    while ((linea = br.readLine())!= null){
+                        lineas.add(linea);
+                    }
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
                 }
+                
+                
+
+                for (String dato:lineas){
+                    String[] lineaDato = dato.split("\\|");
+                    String codigo = lineaDato[0].trim();
+                    String cedula = lineaDato[1].trim();
+                    String nombre = lineaDato[2].trim();
+                    String apellido = lineaDato[3].trim();
+                    String userDato = lineaDato[4].trim();
+                    String contraseniaDato = lineaDato[5].trim();
+                    String email = lineaDato[6].trim();
+                    String tipo = lineaDato[7].trim();
+
+                    if (usuario.equals(userDato) && contrasenia.equals(contraseniaDato)){
+                        System.out.println("Usuario correcto. Bienvenido!");
+                        logeado = true;
+
+                        switch(tipo){
+                            case "E":
+                                personUsuario = new Estudiante(nombre, userDato, cedula, usuario, contraseniaDato, email, 0, tipo);
+                                try {
+                                FileReader fre = new FileReader("estudiantes.txt");
+                                BufferedReader bre = new BufferedReader(fre);
+                                String lineae;
+                                ArrayList<String> linease = new ArrayList<String>();
+                            
+                                    try {
+                                        while ((lineae = bre.readLine())!= null){
+                                            linease.add(lineae);
+                                        }
+                                    } catch (IOException ee) {
+                                        System.out.println(ee.getMessage());
+                                    }
+                                    for (String datoe:linease){
+                                        String[] lineaDatoe = datoe.split("\\|");
+                                        String codigoe = lineaDatoe[0].trim();
+                                        String cedulae = lineaDatoe[1].trim();
+                                        String nombree = lineaDatoe[2].trim();
+                                        String apellidoe = lineaDatoe[3].trim();
+                                        String matricula = lineaDatoe[4].trim();
+                                        String carrerae = lineaDatoe[5].trim();
+                                    }
+                                    
+                                }   catch (Exception ee) {}
+                                break;
+                            case "P":
+                                personUsuario = new Profesor(nombre, apellido, cedula, usuario, contraseniaDato, email, lineas, tipo);
+                                try {
+                                    FileReader frp = new FileReader("profesores.txt");
+                                    BufferedReader brp = new BufferedReader(frp);
+                                    String lineap;
+                                    ArrayList<String> lineasp = new ArrayList<String>();
+                                
+                                        try {
+                                            while ((lineap = brp.readLine())!= null){
+                                                lineasp.add(lineap);
+                                            }
+                                        } catch (IOException ep) {
+                                            System.out.println(ep.getMessage());
+                                        }
+                                        for (String datoe:lineasp){
+                                            String[] lineaDatoe = datoe.split("\\|");
+                                            String codigop = lineaDatoe[0].trim();
+                                            String cedulap = lineaDatoe[1].trim();
+                                            String nombrep = lineaDatoe[2].trim();
+                                            String apellidop = lineaDatoe[3].trim();
+                                            String facultad = lineaDatoe[4].trim();
+                                            String materias = lineaDatoe[5].trim();
+                                        }
+                                        
+                                    }   catch (Exception ep) {}
+                                break;
+
+                            case "A":
+                                personUsuario = new Administrador(nombre, apellido, cedula, usuario, contraseniaDato, tipo, null);
+                                try {
+                                    FileReader fra = new FileReader("administradores.txt");
+                                    BufferedReader bra = new BufferedReader(fra);
+                                    String lineap;
+                                    ArrayList<String> lineasa = new ArrayList<String>();
+                                
+                                        try {
+                                            while ((lineap = bra.readLine())!= null){
+                                                lineasa.add(lineap);
+                                            }
+                                        } catch (IOException ea) {
+                                            System.out.println(ea.getMessage());
+                                        }
+                                        for (String datoe:lineasa){
+                                            String[] lineaDatoe = datoe.split("\\|");
+                                            String codigop = lineaDatoe[0].trim();
+                                            String cedulap = lineaDatoe[1].trim();
+                                            String nombrep = lineaDatoe[2].trim();
+                                            String apellidop = lineaDatoe[3].trim();
+                                            String  cargo = lineaDatoe[4].trim();
+                                        }
+                                        
+                                    }   catch (Exception ea) {}
+                                break;
+                        
+                        }
+                        break;
+
+                    }
+
+                }
+
+                if (!logeado){
+                    System.out.println("Credenciales incorrectas");
+                    break;
+                    }
+                
+                } catch (Exception e) {
             }
-        } catch (IOException e) {
-            System.out.println("Error al leer el archivo: " + e.getMessage());
         }
-        return usuarios;
+
     }
+
+    // falta hacer el menu para el tipo de usuario
 }

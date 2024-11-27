@@ -7,8 +7,7 @@ abstract class Usuario {
     protected int codigoUnico;
     protected String usuario;
     protected String contrasenia;
-    protected String correo;
-    protected String rolU; 
+    protected String correo; 
 
     public Usuario(String nombre, String apellido, int numCedula, String usuario, String contrasenia, String correo){
         this.apellido = apellido;

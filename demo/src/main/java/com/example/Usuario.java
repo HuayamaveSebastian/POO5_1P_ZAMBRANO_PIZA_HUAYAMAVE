@@ -23,16 +23,16 @@ public abstract class Usuario {
     }
 
     public abstract void gestionarReserva (String fecha);
-
+/*
     public String toString() {
         return "Usuario{" +
-               "nombre='" + nombre + '\'' +
+               "nombre='" + nombre + '\'' +       
                ", apellido='" + apellido + '\'' +
                ", numCedula=" + numCedula +
                ", correo='" + correo + '\'' +
                '}';
     }
-
+*/
     protected void enviarCorreo(String correoprofesor, TipoEspacio tipo,String materia ){
         System.out.println("Solicitud en proceso, se enviará un correo a profesor:" + correoprofesor);
         System.out.println("Tipo de espacio: " + tipo + ", Materia: " + materia);

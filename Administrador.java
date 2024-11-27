@@ -1,5 +1,8 @@
-import com.example.*;;
+import java.util.List;
+import java.util.Scanner;
 
+import com.example.*;
+import com.example.Enums.*;
 public class Administrador extends Usuario {
     
  private Cargo cargo;
@@ -10,6 +13,16 @@ public class Administrador extends Usuario {
 
     }
 
+    public void gestionarReserva(List<Reserva> reservas) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Reservas pendientes:");
+        for (Reserva reserva : reservas) {
+            if (reserva.getEstado().equals("PENDIENTE")) {
+                System.out.println(reserva);
+            }
+        }
+    }
     public void consultarReserva(String fecha){
         System.out.println("Consultar Reserva");
     }
@@ -18,4 +31,13 @@ public class Administrador extends Usuario {
         System.out.println("Gestionar Reserva");
     }
 
+    @Override
+    public String toString() {
+        return "Administrador{" +
+               "nombre='" + nombre + '\'' +
+               ", apellido='" + apellido + '\'' +
+               ", numCedula=" + numCedula +
+               ", correo='" + correo + '\'' +
+               '}';
+    }
 }

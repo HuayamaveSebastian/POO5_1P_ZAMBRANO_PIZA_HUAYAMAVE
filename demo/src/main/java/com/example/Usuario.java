@@ -1,6 +1,6 @@
 package com.example;
-
-abstract class Usuario {
+import com.example.Enums.*;
+public abstract class Usuario {
     protected String nombre;
     protected String apellido;
     protected int numCedula;
@@ -24,15 +24,25 @@ abstract class Usuario {
 
     public abstract void gestionarReserva (String fecha);
 
-
-    protected void enviarCorreo(String profesor,Enum tipoEspacio,String materia ){
-        System.out.println("Solicitud en proceso, se enviará un correo a profesor:" + profesor.getCorreo());
-
+    public String toString() {
+        return "Usuario{" +
+               "nombre='" + nombre + '\'' +
+               ", apellido='" + apellido + '\'' +
+               ", numCedula=" + numCedula +
+               ", correo='" + correo + '\'' +
+               '}';
     }
 
-    protected void enviarCorreo(String estudiante,Enum tipoEspacio, int matricula){
-        System.out.println("Enviando correo a estudiante:" + estudiante.getCorreo());
+    protected void enviarCorreo(String correoprofesor, TipoEspacio tipo,String materia ){
+        System.out.println("Solicitud en proceso, se enviará un correo a profesor:" + correoprofesor);
+        System.out.println("Tipo de espacio: " + tipo + ", Materia: " + materia);
 
+    }
+    protected void enviarCorreo(String destinatario, String cuerpo) {
+        System.out.println("De: " + this.correo);
+        System.out.println("Para: " + destinatario);
+        System.out.println("Asunto: Reserva Realizada");
+        System.out.println("Mensaje: " + cuerpo);
     }
     
     public void setNombres(String nombre){
@@ -90,7 +100,7 @@ abstract class Usuario {
     public void setCorreo(String correo){
         this.correo = correo;
     }
-        
+}        
         
         
 
@@ -98,5 +108,5 @@ abstract class Usuario {
 
 
     
-}
+
 

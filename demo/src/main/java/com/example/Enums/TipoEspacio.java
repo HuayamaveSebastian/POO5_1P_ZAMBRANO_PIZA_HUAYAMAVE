@@ -1,3 +1,4 @@
+package com.example.Enums;
 public enum TipoEspacio{
     
     Aula, 

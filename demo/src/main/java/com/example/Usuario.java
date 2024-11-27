@@ -7,7 +7,8 @@ abstract class Usuario {
     protected int codigoUnico;
     protected String usuario;
     protected String contrasenia;
-    protected String correo; 
+    protected String correo;
+    protected String rolU; 
 
     public Usuario(String nombre, String apellido, int numCedula, String usuario, String contrasenia, String correo){
         this.apellido = apellido;
@@ -17,13 +18,13 @@ abstract class Usuario {
         this.numCedula = numCedula;
         this.usuario = usuario;
     }
+
     protected void consultarReserva(String fecha){
 
     }
 
     public abstract void gestionarReserva (String fecha);
 
-    
 
     protected void enviarCorreo(String profesor,Enum tipoEspacio,String materia ){
         System.out.println("Solicitud en proceso, se enviará un correo a profesor:" + profesor.getCorreo());
@@ -34,23 +35,23 @@ abstract class Usuario {
         System.out.println("Enviando correo a estudiante:" + estudiante.getCorreo());
 
     }
+    
+    public void setNombres(String nombre){
+        this.nombre = nombre;
+    }
 
     public String getNombres(){
-        return nombres;
+        return nombre;
     }
-    
-    public void setNombres(String nombres){
-        this.nombres = nombres;
+
+    public void setApellidos(String apellido){
+        this.apellido = apellido;
     }
 
     public String getApellido(){
-        return apellidos;
-    }
+        return apellido;
 
-    public void setApellidos(String apellidos){
-        this.apellidos = apellidos;
     }
-
     public int getNumCedula(){
         return numCedula;
     }
@@ -59,7 +60,7 @@ abstract class Usuario {
         this.numCedula = numCedula;
     }
 
-    public getCodigoUnico(){
+    public int getCodigoUnico(){
         return codigoUnico;
     }
 
@@ -80,17 +81,16 @@ abstract class Usuario {
     }
 
     public void setContrasenia(String contrasenia){
-        this.contraenia = contrasenia;
+        this.contrasenia = contrasenia;
     }
 
-    public String getCOrreo(){
+    public String getCorreo(){
         return correo;
     }
 
-    public setCorreo(String correo){
+    public void setCorreo(String correo){
         this.correo = correo;
     }
-
         
         
         

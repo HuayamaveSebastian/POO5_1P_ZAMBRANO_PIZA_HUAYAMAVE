@@ -44,5 +44,5 @@ public class Profesor extends Usuario{
            ", numCedula=" + numCedula +
            ", correo='" + correo + '\'' +
            '}';
-}
+    }
 } 

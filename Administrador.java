@@ -1,6 +1,5 @@
 import java.util.List;
 import java.util.Scanner;
-
 import com.example.*;
 import com.example.Enums.*;
 public class Administrador extends Usuario {
@@ -12,7 +11,7 @@ public class Administrador extends Usuario {
         this.cargo = cargo;
 
     }
-
+    @Override
     public void gestionarReserva(List<Reserva> reservas) {
         Scanner scanner = new Scanner(System.in);
 
@@ -23,12 +22,9 @@ public class Administrador extends Usuario {
             }
         }
     }
+    @Override
     public void consultarReserva(String fecha){
         System.out.println("Consultar Reserva");
-    }
-
-    public void gestionarReserva(String fecha){
-        System.out.println("Gestionar Reserva");
     }
 
     @Override

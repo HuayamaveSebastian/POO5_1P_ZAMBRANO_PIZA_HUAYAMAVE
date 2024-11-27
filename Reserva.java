@@ -9,7 +9,7 @@ public class Reserva {
     private TipoEspacio tipo;
     private Estado estado;
     private String motivo;
-
+    private static int contadorReservas = 0;
     
     public Reserva(Date fechaReserva, EspacioUniversidad espacio, Usuario usuario, TipoEspacio tipo, String motivo) {
         this.fechaReserva = fechaReserva;
@@ -22,11 +22,8 @@ public class Reserva {
         contadorReservas++;
     }
 
-    private static int contadorReservas = 0;
     
-    public int generaCodigo() {
-        return (int) (Math.random() * 10000); 
-    }
+    
 
     // Getters y Setters
     public Date getFechaReserva() {

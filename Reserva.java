@@ -79,5 +79,12 @@ public class Reserva {
     public void setMotivo(String motivo) {
         this.motivo =motivo;
     }
+
+    @Override
+    public String toString(){
+        return "Reseva{" +
+            "fechaReserva="+ fechaReserva + ", espacio=" + espacio + ", usuario=" + usuario + ", codigoReserva="  + codigoReserva +
+            ",tipo=" + tipo + ", motivo=" + '\'' + '}';
+
     
 }

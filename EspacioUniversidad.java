@@ -1,4 +1,4 @@
-import com.example.Enums.*;
+import Enums.*;
 
 public class EspacioUniversidad {    //falta la extension a gestionar reserva
     private TipoEspacio tipo;

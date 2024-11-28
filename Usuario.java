@@ -22,7 +22,7 @@ public abstract class Usuario {
 
     abstract void consultarReserva(Date fecha); //Este deberia ir como abstract debido a que se repite en los tres pero funciona diferente
 
-    protected void gestionarReserva (Date fecha){
+    abstract void gestionarReserva (Date fecha){
 
     }
 /*

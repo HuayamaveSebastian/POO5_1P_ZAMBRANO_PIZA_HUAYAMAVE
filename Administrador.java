@@ -1,17 +1,17 @@
+import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
-import com.example.*;
-import com.example.Enums.*;
+import Enums.*;
 public class Administrador extends Usuario {
     
  private Cargo cargo;
 
-    public Administrador(String nombre, String apellido, int numCedula, String usuario, String contrasenia,String correo, Cargo cargo){
+    public Administrador(String nombre, String apellido, String numCedula, String usuario, String contrasenia,String correo, Cargo cargo){
         super(nombre, apellido, numCedula, usuario, contrasenia, correo);
         this.cargo = cargo;
 
     }
-    @Override
+    
     public void gestionarReserva(List<Reserva> reservas) {
         Scanner scanner = new Scanner(System.in);
 
@@ -22,8 +22,8 @@ public class Administrador extends Usuario {
             }
         }
     }
-    @Override
-    public void consultarReserva(String fecha){
+    @Override  //Añadir la forma en que se consulta ya que es administrador
+    public void consultarReserva(Date fecha){
         System.out.println("Consultar Reserva");
     }
 

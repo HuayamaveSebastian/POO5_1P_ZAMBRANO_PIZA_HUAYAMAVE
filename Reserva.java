@@ -1,6 +1,5 @@
 import java.util.Date;
-import com.example.*;
-import com.example.Enums.*;
+import Enums.*;
 public class Reserva {
     private Date fechaReserva;
     private EspacioUniversidad espacio;
@@ -22,10 +21,6 @@ public class Reserva {
         contadorReservas++;
     }
 
-    
-    
-
-    // Getters y Setters
     public Date getFechaReserva() {
         return fechaReserva;
     }

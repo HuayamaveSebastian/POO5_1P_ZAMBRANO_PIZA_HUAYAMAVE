@@ -6,7 +6,6 @@ public abstract class Usuario {
     protected String nombre;
     protected String apellido;
     protected String numCedula;   //Considero que es String por el hecho de que son numeros excesivos comenzando desde el 0.
-    protected int codigoUnico;
     protected String usuario;
     protected String contrasenia;
     protected String correo; 
@@ -25,16 +24,7 @@ public abstract class Usuario {
     abstract void gestionarReserva (Date fecha){
 
     }
-/*
-    public String toString() {
-        return "Usuario{" +
-               "nombre='" + nombre + '\'' +       
-               ", apellido='" + apellido + '\'' +
-               ", numCedula=" + numCedula +
-               ", correo='" + correo + '\'' +
-               '}';
-    }
-*/
+
     protected void enviarCorreo(String correoprofesor, TipoEspacio tipo,String materia ){
         System.out.println("Solicitud en proceso, se enviará un correo a profesor:" + correoprofesor);
         System.out.println("Tipo de espacio: " + tipo + ", Materia: " + materia);
@@ -47,11 +37,11 @@ public abstract class Usuario {
         System.out.println("Mensaje: " + cuerpo);
     }
     
-    public void setNombres(String nombre){
+    public void setNombre(String nombre){
         this.nombre = nombre;
     }
 
-    public String getNombres(){
+    public String getNombre(){
         return nombre;
     }
 
@@ -101,6 +91,17 @@ public abstract class Usuario {
 
     public void setCorreo(String correo){
         this.correo = correo;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+               "nombre='" + nombre + '\'' +       
+               ", apellido='" + apellido + '\'' +
+               ", numCedula=" + numCedula + '\'' +
+               ", usuario=" + usuario + '\'' +
+               ", correo='" + correo + '\'' +
+               '}';
     }
 }        
         

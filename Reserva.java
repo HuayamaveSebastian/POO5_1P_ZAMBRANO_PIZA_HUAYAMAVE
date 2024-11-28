@@ -24,23 +24,23 @@ public class Reserva {
     }
 
     private int generarCoidigo(){
-        return contadorReservas + 5000;  //
+        return contadorReservas + 5000;  
     }
 
     public Date getFechaReserva() {
-        return fechaReserva;           //
+        return fechaReserva;           
     }
 
     public void setFechaReserva(Date fechaReserva){
-        this.fechaReserva = fechaReserva; //
+        this.fechaReserva = fechaReserva; 
     }
 
     public EspacioUniversidad getEspacio() {
-        return espacio;  //
+        return espacio;  
     }
     
     public void setEspacio(EspacioUniversidad espacio) {
-        return espacio = espacio; //
+        return espacio = espacio; 
     
 
     public Usuario getUsuario() {
@@ -68,10 +68,6 @@ public class Reserva {
         return estado;
     }
         
-    public void setEstado(TipoEspacio tipo) {
-        this.tipo = tipo;
-        
-
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
@@ -79,4 +75,9 @@ public class Reserva {
     public String getMotivo() {
         return motivo;
     }
+    
+    public void setMotivo(String motivo) {
+        this.motivo =motivo;
+    }
+    
 }

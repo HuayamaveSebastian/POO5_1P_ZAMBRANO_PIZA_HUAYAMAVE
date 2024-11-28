@@ -1,15 +1,17 @@
-package com.example;
-import com.example.Enums.*;
+import java.sql.Date;
+
+import Enums.*;
+
 public abstract class Usuario {
     protected String nombre;
     protected String apellido;
-    protected int numCedula;
+    protected String numCedula;   //Considero que es String por el hecho de que son numeros excesivos comenzando desde el 0.
     protected int codigoUnico;
     protected String usuario;
     protected String contrasenia;
     protected String correo; 
 
-    public Usuario(String nombre, String apellido, int numCedula, String usuario, String contrasenia, String correo){
+    public Usuario(String nombre, String apellido, String numCedula, String usuario, String contrasenia, String correo){
         this.apellido = apellido;
         this.contrasenia = contrasenia;
         this.correo = correo;
@@ -18,11 +20,11 @@ public abstract class Usuario {
         this.usuario = usuario;
     }
 
-    protected void consultarReserva(String fecha){
+    abstract void consultarReserva(Date fecha); //Este deberia ir como abstract debido a que se repite en los tres pero funciona diferente
+
+    protected void gestionarReserva (Date fecha){
 
     }
-
-    public abstract void gestionarReserva (String fecha);
 /*
     public String toString() {
         return "Usuario{" +
@@ -61,11 +63,11 @@ public abstract class Usuario {
         return apellido;
 
     }
-    public int getNumCedula(){
+    public String getNumCedula(){
         return numCedula;
     }
 
-    public void setNumCedula(int numCedula){
+    public void setNumCedula(String numCedula){
         this.numCedula = numCedula;
     }
 
@@ -102,6 +104,8 @@ public abstract class Usuario {
     }
 }        
         
+        
+
         
 
 

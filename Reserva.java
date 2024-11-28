@@ -1,12 +1,14 @@
 import java.util.Date;
 import Enums.*;
+import java.io.*;
+
 public class Reserva {
-    private Date fechaReserva;
+    private Date fechaReserva; 
     private EspacioUniversidad espacio;
-    private Usuario usuario;
+    private Usuario usuario; 
     private int codigoReserva;
-    private TipoEspacio tipo;
-    private Estado estado;
+    private TipoEspacio tipo; 
+    private Estado estado; 
     private String motivo;
     private static int contadorReservas = 0;
     
@@ -21,17 +23,33 @@ public class Reserva {
         contadorReservas++;
     }
 
+    private int generarCoidigo(){
+        return contadorReservas + 5000;  //
+    }
+
     public Date getFechaReserva() {
-        return fechaReserva;
+        return fechaReserva;           //
+    }
+
+    public void setFechaReserva(Date fechaReserva){
+        this.fechaReserva = fechaReserva; //
     }
 
     public EspacioUniversidad getEspacio() {
-        return espacio;
+        return espacio;  //
     }
+    
+    public void setEspacio(EspacioUniversidad espacio) {
+        return espacio = espacio; //
+    
 
     public Usuario getUsuario() {
         return usuario;
     }
+        
+    public void setUsuario(Uusario usuario) {
+        this.usuario = usuario;
+        
 
     public int getCodigoReserva() {
         return codigoReserva;
@@ -40,10 +58,19 @@ public class Reserva {
     public TipoEspacio getTipo() {
         return tipo;
     }
+        
+    public void setTipo(TipoEspacio tipo) {
+        this.tipo = tipo;
+    }
+        
 
     public Estado getEstado() {
         return estado;
     }
+        
+    public void setEstado(TipoEspacio tipo) {
+        this.tipo = tipo;
+        
 
     public void setEstado(Estado estado) {
         this.estado = estado;

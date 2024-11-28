@@ -1,13 +1,14 @@
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import Enums.*;
 
 public class Profesor extends Usuario{
     
     private ArrayList<String> Materias;
     private String Facultad;
     
-    public Profesor (String nombre, String apellido, String numCedula, String usuario, String contrasenia,String correo,List<String> Materias, String Facultad){
+    public Profesor (String nombre, String apellido, String numCedula, String usuario, String contrasenia, String correo, List<String> Materias, String Facultad){
         super(nombre, apellido, numCedula, usuario, contrasenia, correo);
         this.Materias = new ArrayList<>(Materias);
         this.Facultad = Facultad;
@@ -30,10 +31,12 @@ public class Profesor extends Usuario{
 */
     @Override
     public void consultarReserva( Date fecha){
+        System.out.println("Consultando la reserva del profesor")
         
     }
 
-    public void gestionarReserva(String fecha){
+    public void gestionarReserva( Date fecha){
+        System.out.println("Gestion de reserva en proceso")
 
     }
     @Override

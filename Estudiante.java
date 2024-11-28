@@ -9,7 +9,7 @@ public class Estudiante extends Usuario{
 
     @Override   //aumentar aqui, cambiar.
     public void consultarReserva( Date fecha ){
-        System.out.println("");
+        System.out.println("Consultando la reserva del estudiante")
     }
 
     public Estudiante( String nombre, String apellido, String numCedula,String usuario, String contrasenia, String correo,int matricula, String carrera){
@@ -36,7 +36,7 @@ public class Estudiante extends Usuario{
 
     @Override
     public void gestionarReserva(Date fecha ){
-        System.out.println("Epere su confirmación");
+        System.out.println("Espere su confirmación");
         // ponerle mas cosas 
     }
 

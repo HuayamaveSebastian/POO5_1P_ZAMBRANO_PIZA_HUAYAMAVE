@@ -1,11 +1,16 @@
-
-import java.time.LocalDate;
+import java.sql.Date;
+import java.time.LocalDate; //no se si se va a usar localdate pero igual para que cuadre lo cambié
 
 
 public class Estudiante extends Usuario{
 
     private int matricula;
     private String carrera; 
+
+    @Override   //aumentar aqui, cambiar.
+    public void consultarReserva( Date fecha ){
+        System.out.println("");
+    }
 
     public Estudiante( String nombre, String apellido, String numCedula,String usuario, String contrasenia, String correo,int matricula, String carrera){
         super(nombre, apellido, numCedula, usuario, contrasenia, correo);
@@ -30,15 +35,9 @@ public class Estudiante extends Usuario{
     }
 
     @Override
-    public void gestionarReserva(LocalDate fecha ){
+    public void gestionarReserva(Date fecha ){
         System.out.println("Epere su confirmación");
         // ponerle mas cosas 
-    }
-
-    // ARREGLAR 
-    @Override
-    public void consultarReserva(LocalDate fecha){
-        System.out.println(".....");
     }
 
 }   

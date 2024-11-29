@@ -56,9 +56,22 @@ public class EspacioUniversidad {    //falta la extension a gestionar reserva
         this.tipoEspacio = tipoEspacio; 
     }
 
-    
+    public boolean estaDisponible() {
+        return this.estadoEspacio == EstadoEspacio.DISPONIBLE;
+    }
 
+    public void cambiarEstado(EstadoEspacio nuevoEstado) {
+        this.estadoEspacio = nuevoEstado;
+    }
 
-    
-    
+    @Override
+    public String toString() {
+        return "EspacioUniversidad{" +
+                "nombre='" + nombre + '\'' +
+                ", capacidad=" + capacidad +
+                ", codigoUnicoEspacio=" + codigoUnicoEspacio +
+                ", estadoEspacio=" + estadoEspacio +
+                ", tipoEspacio=" + tipoEspacio +
+                '}';
+    }  
 }

@@ -52,8 +52,8 @@ public class EspacioUniversidad {    //falta la extension a gestionar reserva
         return tipoEspacio;
     }
     
-    public void setTipo(TipoEspacio tipo){
-        this.tipo = tipo; 
+    public void setTipoEspacio(TipoEspacio tipoEspacio){
+        this.tipoEspacio = tipoEspacio; 
     }
 
     

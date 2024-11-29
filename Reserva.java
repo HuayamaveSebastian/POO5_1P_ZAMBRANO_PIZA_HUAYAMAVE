@@ -16,7 +16,7 @@ public class Reserva {
         this.fechaReserva = fechaReserva;
         this.espacio = espacio;
         this.usuario = usuario;
-        this.codigoReserva = generaCodigo();
+        this.codigoReserva = generarCodigo();
         this.tipo = tipo;
         this.estado = Estado.Pendiente; 
         this.motivo = motivo;

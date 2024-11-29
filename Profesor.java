@@ -1,7 +1,7 @@
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-import Enums.*;
+import Enums.TipoEspacio;
 
 public class Profesor extends Usuario{
     

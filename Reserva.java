@@ -19,7 +19,7 @@ public class Reserva {
         this.codigoReserva = generarCodigo();
         this.tipo = tipo;
         this.estado = Estado.Pendiente; 
-        this.motivo = motivo;
+        this.motivo = motivo != null? motivo: "Sin motivo";
     }
 
     private int generarCoidigo(){

@@ -20,7 +20,6 @@ public class Reserva {
         this.tipo = tipo;
         this.estado = Estado.Pendiente; 
         this.motivo = motivo;
-        contadorReservas++;
     }
 
     private int generarCoidigo(){
